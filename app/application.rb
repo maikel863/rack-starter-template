@@ -88,8 +88,8 @@ class Application
       id = req.path.split('/')[2]
       begin
         gym = Gym.find(id)
-        # Note defining specific attributes
-        return [200, {'Content-Type' => 'application/json'}, [{name: gym.name, location: gym.location, monthly_price: gym.monthly_price, gym_members: gym.gym_members}.to_json]]
+        # the include method allows us to add to the json hash
+        return [200, {'Content-Type' => 'application/json'}, [gym.as_json(include: :gym_members).to_json]]
       rescue
         return [404, {'Content-Type' => 'application/json'}, [{message: "Gym not found"}.to_json]]
       end
