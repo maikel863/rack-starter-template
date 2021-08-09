@@ -29,11 +29,11 @@ https://www.sqlshack.com/setting-up-a-postgresql-database-on-mac/
 
 ## Host on Heroku
 
-- Create a heroku app
+- Create a heroku app ```heroku create```
 
-- Set the heroku origin
+- Set the heroku origin ```heroku git:remote -a your_app_name``` (app name generated with heroku create)
 
-- Push with git to heroku
+- Push with git to heroku ```git push heroku <branch_name>```
 
 
 ## Heroku Issues
