@@ -9,5 +9,6 @@ development:
 production:
   adapter: postgresql
   database: gym_app_production
+  host: <%= ENV[‘DATABASE_HOST’] %>
   pool: 5
   timeout: 5000
