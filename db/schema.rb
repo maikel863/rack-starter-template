@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2021_08_04_203348) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "gym_members", force: :cascade do |t|
     t.string "name"
     t.string "focus"
-    t.integer "gym_id"
+    t.bigint "gym_id"
     t.index ["gym_id"], name: "index_gym_members_on_gym_id"
   end
 
@@ -25,4 +28,5 @@ ActiveRecord::Schema.define(version: 2021_08_04_203348) do
     t.integer "monthly_price"
   end
 
+  add_foreign_key "gym_members", "gyms"
 end
