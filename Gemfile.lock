@@ -67,6 +67,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
+  x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
@@ -83,7 +84,7 @@ DEPENDENCIES
   sinatra-activerecord
 
 RUBY VERSION
-   ruby 2.6.1p33
+   ruby 2.6.8p205
 
 BUNDLED WITH
-   2.2.7
+   2.2.25

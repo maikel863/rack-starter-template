@@ -38,6 +38,8 @@ https://www.sqlshack.com/setting-up-a-postgresql-database-on-mac/
 
 ## Heroku Issues
 
+- You may need to specify the ruby version in your gemfile, install that ruby version locally, then re-bundle
+
 - You may need to install the Heroku CLI if you have not done so already
 
 https://devcenter.heroku.com/articles/heroku-cli
