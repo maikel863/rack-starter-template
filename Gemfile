@@ -1,4 +1,4 @@
-ruby "2.6.8"
+ruby "2.6.1"
 
 source 'https://rubygems.org'
 
@@ -13,4 +13,4 @@ gem "activerecord", "~> 5.2"
 gem "sinatra-activerecord"
 gem 'faker'
 gem 'pg'
-gem 'concurrent-ruby', '~> 1.1.9'
+gem 'concurrent-ruby'
