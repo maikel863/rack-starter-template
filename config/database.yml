@@ -5,3 +5,9 @@ development:
   timeout: 5000
   username: newuser
   password: password
+
+production:
+  adapter: postgresql
+  database: gym_app_production
+  pool: 5
+  timeout: 5000
