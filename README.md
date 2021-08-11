@@ -1,6 +1,8 @@
 # HOSTING INSTRUCTIONS
 
-Follow instructions here. Below are problems you might run into
+In order to host your project, you will need to migrate to Postgres, connect with Heroku, and set up your Heroku Dyno.
+
+See this blog for information from a Flatiron alum: https://medium.com/codex/deploying-a-rack-app-to-heroku-6d160b14904c
 
 ## Postgres Setup
 
@@ -38,21 +40,24 @@ https://www.sqlshack.com/setting-up-a-postgresql-database-on-mac/
 
 ## Heroku Issues
 
-- You may need to specify the ruby version in your gemfile, install that ruby version locally, then re-bundle
-
 - You may need to install the Heroku CLI if you have not done so already
 
 https://devcenter.heroku.com/articles/heroku-cli
 
-- You may need to add the proper platform to your Gemfile.lock
+- Make sure the rake gem is added in your Gemfile
+    - You will receive an error about ruby-concurrent if you do not
 
+- You will need to install the Heroku Postgres addon
+    - Check if it is already installed with ```heroku addons```
+    - Run ```heroku addons:create heroku-postgresql```
+
+- You may need to add the proper platform to your Gemfile.lock
 ```bundle lock --add-platform x86_64-linux```
 
 - You may need to switch from Sqlite to Postgres
+    - Remove the sqlite gem from your Gemfile
+    - Add the 'pg' gem to your Gemfile
+    - Configure your database.yml file to use postgres. 
+    - See the production code example in this repo's database.yaml
+    - https://devcenter.heroku.com/articles/sqlite3
 
-https://devcenter.heroku.com/articles/sqlite3
-
-- You may need to install Postgres in order to install the Postgres gem
-
-```brew update```
-```brew install postgresql```
