@@ -1,13 +1,5 @@
 development:
-  adapter: postgresql
-  database: gym_app_development
-  pool: 5
-  timeout: 5000
-  username: newuser
-  password: password
-
-production:
-  adapter: postgresql
-  database: gym_app_production
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: 5
   timeout: 5000

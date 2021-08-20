@@ -12,3 +12,4 @@ gem "sinatra-activerecord"
 gem 'faker'
 gem 'pg'
 gem 'rake'
+gem 'sqlite3'

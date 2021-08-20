@@ -1,23 +1,18 @@
-Gym.destroy_all
+t1 = Team.create(name: Faker::Team.creature, location: Faker::Team.state),
+t2 = Team.create(name: Faker::Team.creature, location: Faker::Team.state),
+t3 = Team.create(name: Faker::Team.creature,location: Faker::Team.state),
+t4 = Team.create(name: Faker::Team.creature, location: Faker::Team.state),
+t5 = Team.create(name: Faker::Team.creature, location: Faker::Team.state),
+t6 = Team.create(name: Faker::Team.creature, location: Faker::Team.state),
+t7 = Team.create(name: Faker::Team.creature, location: Faker::Team.state)
 
-gym_prices = [1000, 3000, 8000]
-
-50.times do
-    Gym.create(name: "#{Faker::Name.first_name}'s Gym", location: Faker::Address.city, monthly_price: gym_prices.sample)
+10.times do 
+    Player.create(
+        name: Faker::Name.first_name,
+        age: Faker::Number.between(from: 18, to: 40),
+        position: Faker::Sports::Basketball.position,
+        rating: Faker::Number.between(from: 1, to: 10),
+        rookie: [true, false].sample,
+        team: [t1, t2, t3, t4, t5, t6, t7].sample
+    )
 end
-
-puts 'Gyms Seeded'
-
-GymMember.destroy_all
-
-gyms = Gym.all
-
-gym_member_focuses = ['body buidling', 'power lifting']
-
-200.times do
-    GymMember.create(name: Faker::Name.first_name, focus: gym_member_focuses.sample, gym: gyms.sample)
-end
-
-puts 'Gym Members Seeded'
-
-puts 'Seeding complete'

@@ -10,23 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_04_203348) do
+ActiveRecord::Schema.define(version: 2021_08_19_000726) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "gym_members", force: :cascade do |t|
+  create_table "players", force: :cascade do |t|
     t.string "name"
-    t.string "focus"
-    t.bigint "gym_id"
-    t.index ["gym_id"], name: "index_gym_members_on_gym_id"
+    t.integer "age"
+    t.string "position"
+    t.integer "rating"
+    t.boolean "rookie"
+    t.integer "team_id"
+    t.index ["team_id"], name: "index_players_on_team_id"
   end
 
-  create_table "gyms", force: :cascade do |t|
+  create_table "teams", force: :cascade do |t|
     t.string "name"
     t.string "location"
-    t.integer "monthly_price"
   end
 
-  add_foreign_key "gym_members", "gyms"
 end
