@@ -1,4 +1,3 @@
 class Team < ActiveRecord::Base
-    has_many :players
-    accepts_nested_attributes_for :players
+    has_many :players, dependent: :destroy
 end
