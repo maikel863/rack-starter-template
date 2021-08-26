@@ -64,36 +64,25 @@ class Application
 
     # Team Index
 
-  elsif req.path == '/teams' && req.get?
+    if req.path == '/teams' && req.get?
     teams = Team.all
    return [
      200, 
    { 'Content-Type' => 'application/json' }, 
    [ teams.to_json ]
  ]
+    end
     # Team Show
-elsif req.path.match(/teams/) && req.get?
-  id = req.path.split('/')[2]
-  team = Team.find_by(id: id)
-  if team
-    players = team.players
-    team_res = {
-      name: team.name,
-      location: team.location,
-      players: players
-    }
- return [
-   200, 
- { 'Content-Type' => 'application/json' }, 
- [ team_res.to_json ]
-  ]
-else
-  return  [
-    204,
-    {}, 
-    [ { error: 'team not found' }.to_json ]
-  ]
-end  
+
+    if req.path.match('/teams/') && req.get?
+      id = req.path.split('/')[2]
+      begin
+        team = Team.find(id)
+        return [200, {'Content-Type' => 'application/json'}, [team.to_json]]
+      rescue
+        return [404, {'Content-Type' => 'application/json'}, [{message: "Team not found"}.to_json]]
+      end
+    end
 
     # Team Create
 
